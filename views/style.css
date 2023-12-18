@@ -1,0 +1,429 @@
+:root {
+  --main-color: #0855a3;
+  --secondary-color: #db5336;
+  --accent-color: #20c5d9;
+}
+
+body {
+  background: #db5336;
+  background: linear-gradient(90deg, rgba(237, 79, 43, 1) 0%, #0855a3 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
+}
+
+.container {
+  padding: 1cm;
+  width: 26cm;
+}
+
+.blue {
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--main-color);
+}
+.orange {
+  color: var(--secondary-color);
+  font-size: 20px;
+  font-weight: bold;
+}
+.quarter {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+.half {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.margin {
+  margin: 20px 0;
+}
+.bold {
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: -12px;
+  margin-bottom: 50px;
+}
+
+/* HEADER */
+.header {
+  background-color: white;
+  width: 100%;
+  height: 150px;
+  border-radius: 25px;
+  padding: 0.5cm;
+  margin-bottom: 1cm;
+}
+
+.header__up {
+  display: flex;
+  justify-content: space-between;
+}
+.header__up__title {
+  background-color: var(--main-color);
+  border-radius: 15px;
+  height: 1cm;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0.5cm;
+  font-size: 20px;
+  font-weight: bold;
+}
+.header__title {
+  color: var(--main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 2.5cm;
+}
+.header__up__images {
+  display: flex;
+  gap: 3px;
+}
+.header__up__images > img {
+  width: 32.5%;
+  height: 50px;
+}
+/* INFO */
+
+.info__title {
+  text-align: center;
+  padding-bottom: 0.2cm;
+  color: white;
+}
+/* INFO PERSON */
+
+.info__person {
+  background-color: white;
+  width: 100%;
+  height: 130px;
+  border-radius: 15px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.info__person__data {
+  display: flex;
+}
+
+/* INFO COMPANY */
+.info__company {
+  background-color: white;
+  width: 100%;
+  height: 420px;
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.info__company__title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.info__company__title > img {
+  width: auto;
+  height: 30px;
+  position: absolute;
+  right: 54px;
+  top: -10px;
+}
+
+.info__company__data {
+  width: 100%;
+  display: flex;
+  margin: 20px 0;
+}
+
+.info__company__data__left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info__company__data__center {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info__company__data__item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.genderChart {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.members {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 45px;
+}
+
+.members > img {
+  height: 50px;
+  width: 30px;
+}
+
+/* INFO STATISTICS */
+.info__statistics {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 150px;
+}
+
+.info__statistics__participation {
+  background-color: white;
+  width: 50%;
+  height: 450px;
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.progress-container {
+  width: 100%;
+  height: 200px;
+}
+
+progress {
+  border-radius: 50px;
+  height: 60px;
+  width: 100%;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+progress::-webkit-progress-bar {
+  background-color: var(--accent-color);
+  border-radius: 50px;
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--main-color);
+  border-radius: 50px;
+}
+
+.figures {
+  display: flex;
+  justify-content: space-between;
+}
+
+.figures > div {
+  margin-bottom: 15px;
+}
+
+.company {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.info__statistics__data_economics {
+  background-color: white;
+  width: 60%;
+  height: 450px;
+  border-radius: 15px;
+  padding: 25px;
+  position: relative;
+}
+
+.row-span-economics {
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  align-items: baseline;
+}
+
+.row-span-economics > span {
+  color: var(--secondary-color);
+}
+
+.info__statistics__data_economics__title > span {
+  font-size: 15px;
+  color: var(--secondary-color);
+}
+
+.info__statistics__data_economics__numbers {
+  display: flex;
+  width: 100%;
+}
+
+.info__statistics__data_economics__numbers__business {
+  width: 60%;
+}
+
+.info__statistics__data_economics__numbers__clients {
+  width: 40%;
+}
+
+.row-span-business {
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  align-items: baseline;
+}
+
+.row-span-business > span {
+  color: var(--main-color);
+}
+
+.numbers {
+  font-size: 40px;
+  font-weight: 100;
+  margin-top: 5px;
+}
+
+.info__statistics__data_economics__graphic {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.clients {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  display: flex;
+}
+
+.clients > p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.row-span-clients {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  align-items: baseline;
+}
+
+.row-span-clients > p {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.row-span-clients > span {
+  font-size: 18px;
+}
+
+.page-break {
+  page-break-before: always;
+  margin-top: 50px;
+}
+
+.margin-top-50 {
+  margin-top: 35px;
+}
+
+/* TABLE */
+
+.table-container {
+  margin-top: 80px;
+  background-color: white;
+  padding: 25px;
+  border-radius: 25px;
+}
+
+table {
+  margin-top: 5px;
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid black;
+}
+
+td {
+  height: 100px;
+  padding: 10px;
+  text-align: left;
+}
+
+.td-blue {
+  color: #4f89b9;
+  text-align: baseline;
+  font-size: 14px;
+}
+
+.t-header {
+  background-color: #f2f2f2;
+}
+
+.td-fifth {
+  border-right: 2px solid black;
+  width: 20%;
+}
+
+.td-fifth-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 85px;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.space-between > p {
+  font-style: italic;
+  font-size: 14px;
+}
+
+.no-border-top {
+  border: 2px solid black;
+  border-top: none;
+}
+
+.border-left {
+  border-left: 2px solid black;
+}
+
+.border-right {
+  border-right: 2px solid black;
+}
+
+.t-half {
+  width: 50%;
+}
+
+.t-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.t-column > p:first-child {
+  font-style: italic;
+}
+
+.bottom-table {
+  margin-top: 0;
+  border-top: none;
+}
+
+table img {
+  width: 60px;
+}

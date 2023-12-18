@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDF</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header__up">
+        <div class="header__up__title"> INFORME DE EXCELENCIA INNOVADORA CEEIs CLM</div>
+        <div class="header__up__images">
+          <img src="data:image/png;base64, <%= rayasImg %>" alt="">
+          <img src="data:image/png;base64, <%= excelenciaImg %>" alt="">
+          <img src="data:image/png;base64, <%= ceeisImg %>" alt="">
+        </div>
+      </div>
+      <div class="header__title">
+        <h1>CUESTIONARIO DE INNOVACIÓN</h1>
+      </div>
+    </div>
+
+    <h1 class="info__title">INFORMACIÓN GENERAL</h1>
+
+    <div class="info__person">
+      <div class="orange">PERSONA DE CONTACTO</div>
+      <div class="info__person__data">
+        <div class="quarter">
+          <p class="blue">Nombre y apellidos</p>
+          <p>
+            <%= data.contact_person.name%>
+            <%= data.contact_person.last_name%>
+          </p>
+        </div>
+        <div class="quarter">
+          <p class="blue">Cargo</p>
+          <p>
+            <%= data.contact_person.role%>
+          </p>
+        </div>
+        <div class="quarter">
+          <p class="blue">Teléfono</p>
+          <p>
+            <%= data.contact_person.phone%>
+          </p>
+        </div>
+        <div class="quarter">
+          <p class="blue">Correo Electrónico</p>
+          <p>
+            <%= data.contact_person.email%>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info__company">
+      <div class="info__company__title">
+        <p class="orange">DATOS DE LA EMPRESA</p>
+        <img src=<%= data.company_info.logo %> />
+      </div>
+
+      <div class="info__company__data">
+        <div class="quarter">
+          <p class="blue"> CIF</p>
+          <p><%= data.company_info.cif %></p>
+        </div>
+        <div class="half"">
+          <p class=" blue">Razón social</p>
+          <p><%= data.company_info.business_name %></p>
+        </div>
+        <div>
+          <p class=" blue">Nombre comercial</p>
+          <p><%= data.company_info.commercial_name %></p>
+        </div>
+      </div>
+
+      <div class="info__company__data">
+        <div class="quarter">
+          <p class="blue">Dirección</p>
+          <p><%= data.company_info.address %></p>
+        </div>
+        <div class="quarter">
+          <p class="blue">CP</p>
+          <p><%= data.company_info.cp %></p>
+        </div>
+        <div class="quarter">
+          <p class="blue">Provincia</p>
+          <p><%= data.company_info.province %></p>
+        </div>
+        <div class="quarter">
+          <p class="blue">Localidad</p>
+          <p><%= data.company_info.cirty %></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="info__company__data">
+        <div class="quarter">
+          <p class="blue">Teléfono</p>
+          <p><%= data.company_info.phone %></p>
+        </div>
+        <div class="quarter">
+          <p class="blue">Página web</p>
+          <p><%= data.company_info.web %></p>
+        </div>
+        <div class="quarter">
+          <p class="blue">Correo electrónico</p>
+          <p><%= data.company_info.email %></p>
+        </div>
+        <div class="quarter">
+          <p class="blue">Sector</p>
+          <p><%= data.company_info.sector %></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="info__company__data">
+        <div class="info__company__data__left">
+          <div>
+            <p class="blue">Actividad principal de la empresa:</p>
+            <p><%= data.company_info.main_activity %></p>
+          </div>
+          <div>
+            <p class="blue">CNAE:</p>
+            <p><%= data.company_info.cnae %></p>
+          </div>
+        </div>
+        <div class="info__company__data__center">
+          <div>
+            <p class="blue">Equipo</p>
+            <% let total = data.company_info.team.male + data.company_info.team.female; %>
+            <p><%= total %></p>
+          </div>
+          <div class="info__company__data__item">
+            <div>
+              <p class="blue">Hombres</p>
+              <%= Math.round((data.company_info.team.male / total) * 100) %> %</p>
+            </div>
+            <div>
+              <p class="blue">Mujeres</p>
+              <%= Math.round((data.company_info.team.female / total) * 100) %> %</p>
+            </div>
+          </div>
+        </div>
+        <div class="genderChart">
+          <div class="members">
+            <% for(let male of teamBalance.maleMembers) {  %>
+              <img src="data:image/png;base64, <%= manPic %>"alt="">
+            <%  } %>
+
+            <% for(let female of teamBalance.femaleMembers) {  %>
+               <img src="data:image/png;base64, <%= womanPic %>"alt="">
+            <%  } %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info__statistics">
+      <div class="info__statistics__participation">
+        <p class="orange">PARTICIPACIÓN O ACCIONARIADO</p>
+        <p class="margin">Privada sin participación extranjera</p>
+        <div class="progress-container">
+          <div class="figures">
+            <div>
+              <p class="blue">Founders</p>
+              <p><%= data.shares.founders %> %</p>
+            </div>
+            <div>
+              <p class="blue">Investors</p>
+              <p><%= data.shares.investors %> %</p>
+            </div>
+          </div>
+          <progress class="progress-bar" max="100" value="<%= data.shares.founders %>"></progress>
+        </div>
+        <p class="orange margin">GRUPO EMPRESARIAL</p>
+        <p class="blue">País donde se halla la matriz</p>
+        <p class="company">
+          <%= data.company_info.business_group.country %>
+          <img src="https://flagsapi.com/<%= companyCountryCode %>/flat/24.png">
+        </p>
+      </div>
+
+      <div class="info__statistics__data_economics">
+        <div class="row-span-economics">
+          <p class="orange">DATOS ECONÓMICOS </p>
+          <span> (Valorados sin incluir IVA)</span>
+        </div>
+
+        <div class="info__statistics__data_economics__numbers margin">
+          <div class="info__statistics__data_economics__numbers__business">
+            <div class="row-span-business">
+              <p class="blue">Cifra de negocios</p> <span>(2022)</span>
+            </div>
+            <% function formatNumber(number) { if (number>= 1000) {
+              const formatted = (number / 1000);
+              return formatted % 1 === 0 ? formatted.toFixed(0) + 'K' : formatted.toFixed(1) + 'K';
+              }
+              return number.toString();
+              }
+              %>
+              <p class="numbers">
+                <%= formatNumber(data.financials.billing) %>€
+              </p>
+          </div>
+          <div class="info__statistics__data_economics__numbers__clients">
+            <div class="row-span-business">
+              <p class="blue">Clientes</p><span>(2022)</span>
+            </div>
+            <p class="numbers">
+              <%= data.financials.clients.eu + data.financials.clients.spain + data.financials.clients.rest_of_the_world %>
+            </p>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="info__statistics__data_economics__graphic">
+          <% for(let region of clientKeys) { %>
+            <div class="clients">
+              <p class="blue align">Clientes
+                <% if(region === "rest_of_the_world") { %>
+                  🌍
+                <% } else if(region === "eu") { %>
+                  <img style="width: 24px;" src="data:image/png;base64, <%= euFlag %>" alt="">
+                <% } else { %>
+                  <img src="https://flagsapi.com/<%= countryCodePerClient[region] %>/flat/24.png">
+                <% } %>
+              </p>
+              <div class="row-span-clients">
+                <p><%= data.financials.clients[region] %></p>
+                <span>
+                 (<%= percentageArray[region] %>) 
+                </span>
+              </div>
+            </div>
+          <% } %>
+        </div>
+        <% if(clientKeys.length <= 6) { %>
+          <div class="<%= clientKeys.length <= 3 ? 'margin-top-50' : '' %>">
+            <div style="width:150px; margin:0 auto;"><canvas id="doughnut"></canvas></div>
+          </div>
+        <% } %>
+        
+      </div>
+    </div>
+
+  <!-- PAGE 2 -->
+  <div class="page-break"></div>
+  <div class="header">
+    <div class="header__up">
+      <div class="header__up__title"> INFORME DE EXCELENCIA INNOVADORA CEEIs CLM</div>
+      <div class="header__up__images">
+        <img src="data:image/png;base64, <%= rayasImg %>" alt="">
+        <img src="data:image/png;base64, <%= excelenciaImg %>" alt="">
+        <img src="data:image/png;base64, <%= ceeisImg %>" alt="">
+      </div>
+    </div>
+    <div class="header__title">
+      <h1>CUESTIONARIO DE INNOVACIÓN</h1>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <p class="orange margin">MODELO DE NEGOCIOS - LEAN CANVAS</p>
+    <p class="bold">El comité evaluador lo examinará y calificará para el rating final.</p>
+    <table>
+      <tr class="">
+        <td class="td-fifth">
+          <div class="td-fifth-content">
+            <div class="space-between">
+              <p> Socios clave</p>
+              <br>
+              <img src="data:image/png;base64, <%= ringsPic %>" alt="">
+    
+            </div>
+            <p class="td-blue">
+              <%= data.lean_canvas.key_partners %>
+            </p>
+          </div>
+        </td>
+    
+        <td class="td-fifth">
+          <div class="td-fifth-content">
+            <div class="space-between">
+              <p> Actividades clave</p>
+              <br>
+              <img src="data:image/png;base64, <%= activityPic %>" alt="">
+    
+            </div>
+            <p class="td-blue">
+              <%= data.lean_canvas.key_activities %>
+            </p>
+          </div>
+        </td>
+    
+        <td class="td-fifth">
+          <div class="td-fifth-content">
+            <div class="space-between">
+              <p> Propuestas de valor</p>
+              <br>
+              <img src="data:image/png;base64, <%= giftPic %>" alt="">
+    
+            </div>
+            <!-- Como el objeto no lo tiene, asumimos una key -->
+            <% if( data.lean_canvas.valuable_proposals ){ %>
+              <p class="td-blue">
+                <%= data.lean_canvas.valuable_proposals %>
+              </p>
+              <% } else { %>
+                <p class="td-blue">Plataforma eficiente y segura para financiamiento de startups</p>
+                <% } %>
+    
+          </div>
+        </td>
+    
+        <td class="td-fifth">
+          <div class="td-fifth-content">
+            <div class="space-between">
+              <p> Relaciones con los clientes</p>
+              <br>
+              <img src="data:image/png;base64, <%= heartPic %>" alt="">
+            </div>
+            <p class="td-blue">
+              <%= data.lean_canvas.clients_relations %>
+            </p>
+          </div>
+        </td>
+    
+        <td class="td-fifth">
+          <div class="td-fifth-content">
+            <div class="space-between">
+              <p> Segmentos de clientes</p>
+              <br>
+              <img src="data:image/png;base64, <%= personPic %>" alt="">
+            </div>
+            <p class="td-blue">
+              <%= data.lean_canvas.clients_segments %>
+            </p>
+          </div>
+        </td>
+    
+      </tr>
+      <tr>
+        <td></td>
+        <td class="no-border-top"></td>
+        <td></td>
+        <td class="no-border-top"></td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <td></td>
+        <td class="border-left border-right">
+          <div class="td-fifth-content">
+            <div class="space-between">
+              <p> Recursos clave</p>
+              <br>
+              <img src="data:image/png;base64, <%= resourcesPic %>" alt="">
+            </div>
+            <p class="td-blue">
+              <%= data.lean_canvas.key_resources %>
+            </p>
+          </div>
+        </td>
+        <td></td>
+        <td class="border-left border-right">
+          <div class="td-fifth-content">
+            <div class="space-between">
+              <p> Canales</p>
+              <br>
+              <img src="data:image/png;base64, <%= carPic %>" alt="">
+            </div>
+            <% if( data.lean_canvas.valuable_proposals ){ %>
+              <p class="td-blue">
+                <%= data.lean_canvas.channels %>
+              </p>
+              <% } else { %>
+                <p class="td-blue">Plataforma online, redes sociales, eventos</p>
+              <% } %>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <td></td>
+        <td class="no-border-top"></td>
+        <td></td>
+        <td class="no-border-top"></td>
+        <td></td>
+      </tr>
+    </table>
+
+  <table class="bottom-table">
+    <tr>
+      <td class="border-right t-half">
+        <div class="space-between">
+          <div class="t-column">
+            <p> Estructura de costes</p>
+            <br>
+            <p class="td-blue">
+              <%= data.lean_canvas.costs %>
+            </p>
+          </div>
+          <img src="data:image/png;base64, <%= paperPic %>" alt="">
+        </div>
+      </td>
+      <td class="t-half">
+        <div class="space-between">
+          <div class="t-column">
+            <p> Lineas de ingresos</p>
+            <br>
+            <p class="td-blue">
+              <%= data.lean_canvas.incomes %>
+            </p>
+          </div>
+          <img src="data:image/png;base64, <%= incomesPic %>" alt="">
+        </div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td class="border-right"></td>
+      <td></td>
+    </tr>
+  </table>
+  </div>
+
+  </div>
+  <script>
+    const graphValues = "<%- graphValues %>";
+    const dataArray = graphValues.split(",").map(Number);
+  
+    const createChart = (elementId, data) => {
+      new Chart(document.getElementById(elementId), {
+        type: 'doughnut',
+        data: { datasets: [{ label: 'Acquisitions by year', data }] },
+        options: { animation: { duration: 0 } }
+      });
+    };
+  
+    createChart('doughnut', dataArray);
+  </script>
+</body>
+</html>
